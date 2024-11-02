@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 @ToString
+@Setter
 @Getter
 @Builder
 @AllArgsConstructor
