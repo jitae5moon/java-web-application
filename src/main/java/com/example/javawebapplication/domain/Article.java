@@ -38,4 +38,8 @@ public class Article extends AuditingFields {
         this.createdBy = createdBy;
     }
 
+    public void change(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
