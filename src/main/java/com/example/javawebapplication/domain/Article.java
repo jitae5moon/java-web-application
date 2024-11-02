@@ -1,6 +1,10 @@
 package com.example.javawebapplication.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import javax.persistence.*;
 
 @Entity
 public class Article extends AuditingFields {
