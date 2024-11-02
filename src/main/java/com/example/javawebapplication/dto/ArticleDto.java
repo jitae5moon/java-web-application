@@ -3,9 +3,11 @@ package com.example.javawebapplication.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
+@ToString
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

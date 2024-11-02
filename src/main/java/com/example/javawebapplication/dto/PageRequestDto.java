@@ -1,9 +1,6 @@
 package com.example.javawebapplication.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,6 +9,7 @@ import org.springframework.util.StringUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+@ToString
 @Getter
 @Builder
 @AllArgsConstructor
