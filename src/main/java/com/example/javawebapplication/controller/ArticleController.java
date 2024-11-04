@@ -74,7 +74,7 @@ public class ArticleController {
         redirectAttributes.addFlashAttribute("result", "Updated Successfully");
         redirectAttributes.addFlashAttribute("id", articleDto.getId());
 
-        return "redirect:/articles/detail";
+        return "redirect:/articles/detail?id=" + articleDto.getId();
     }
 
     @GetMapping("/save")
