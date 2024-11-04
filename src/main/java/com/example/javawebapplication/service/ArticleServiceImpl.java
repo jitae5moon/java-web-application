@@ -2,6 +2,7 @@ package com.example.javawebapplication.service;
 
 import com.example.javawebapplication.domain.Article;
 import com.example.javawebapplication.dto.ArticleDto;
+import com.example.javawebapplication.dto.ArticlesWithCommentsCountDto;
 import com.example.javawebapplication.dto.PageRequestDto;
 import com.example.javawebapplication.dto.PageResponseDto;
 import com.example.javawebapplication.repository.ArticleRepository;
@@ -49,6 +50,21 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = result.orElseThrow();
 
         return modelMapper.map(article, ArticleDto.class);
+    }
+
+    @Override
+    public PageResponseDto<ArticlesWithCommentsCountDto> getArticlesWithCommentsCount(PageRequestDto pageRequestDto) {
+        String[] types = pageRequestDto.getTypes();
+        String keyword = pageRequestDto.getKeyword();
+        Pageable pageable = pageRequestDto.getPageable("id");
+
+        Page<ArticlesWithCommentsCountDto> result = articleRepository.searchWithCommentCount(types, keyword, pageable);
+
+        return PageResponseDto.<ArticlesWithCommentsCountDto>withAll()
+                .pageRequestDto(pageRequestDto)
+                .dtoList(result.getContent())
+                .total((int) result.getTotalElements())
+                .build();
     }
 
     @Override

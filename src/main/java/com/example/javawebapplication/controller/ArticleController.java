@@ -1,6 +1,7 @@
 package com.example.javawebapplication.controller;
 
 import com.example.javawebapplication.dto.ArticleDto;
+import com.example.javawebapplication.dto.ArticlesWithCommentsCountDto;
 import com.example.javawebapplication.dto.PageRequestDto;
 import com.example.javawebapplication.dto.PageResponseDto;
 import com.example.javawebapplication.service.ArticleService;
@@ -28,7 +29,7 @@ public class ArticleController {
     public String getArticles(PageRequestDto pageRequestDto, Model model) {
         log.info("ArticleController :: getArticles :: pageRequestDto = {}", pageRequestDto);
 
-        PageResponseDto<ArticleDto> responseDto = articleService.getArticles(pageRequestDto);
+        PageResponseDto<ArticlesWithCommentsCountDto> responseDto = articleService.getArticlesWithCommentsCount(pageRequestDto);
 
         model.addAttribute("responseDto", responseDto);
 
